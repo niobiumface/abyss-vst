@@ -1,0 +1,8 @@
+build/
+out/
+.vs/
+tools/pluginval/
+*.user
+*.log
+CMakeUserPresets.json
+.cache/

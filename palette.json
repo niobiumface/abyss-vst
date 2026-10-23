@@ -1,0 +1,328 @@
+{
+ "name": "Abyss – Konzept I (Arcade)",
+ "native_window": [
+  240,
+  186
+ ],
+ "default_scale": 3,
+ "colors": [
+  {
+   "index": 0,
+   "name": "K0",
+   "hex": "#050408"
+  },
+  {
+   "index": 1,
+   "name": "K1",
+   "hex": "#0C0A12"
+  },
+  {
+   "index": 2,
+   "name": "V0",
+   "hex": "#16122A"
+  },
+  {
+   "index": 3,
+   "name": "V1",
+   "hex": "#221B37"
+  },
+  {
+   "index": 4,
+   "name": "B1",
+   "hex": "#1B2539"
+  },
+  {
+   "index": 5,
+   "name": "V2",
+   "hex": "#31294B"
+  },
+  {
+   "index": 6,
+   "name": "B2",
+   "hex": "#2B3B55"
+  },
+  {
+   "index": 7,
+   "name": "V3",
+   "hex": "#473D67"
+  },
+  {
+   "index": 8,
+   "name": "V4",
+   "hex": "#5F5585"
+  },
+  {
+   "index": 9,
+   "name": "N0",
+   "hex": "#6E6658"
+  },
+  {
+   "index": 10,
+   "name": "N1",
+   "hex": "#ABA28C"
+  },
+  {
+   "index": 11,
+   "name": "N2",
+   "hex": "#E9E2CC"
+  },
+  {
+   "index": 12,
+   "name": "R0",
+   "hex": "#2E070B"
+  },
+  {
+   "index": 13,
+   "name": "R1",
+   "hex": "#6A0E16"
+  },
+  {
+   "index": 14,
+   "name": "R2",
+   "hex": "#A8161F"
+  },
+  {
+   "index": 15,
+   "name": "R3",
+   "hex": "#E23A32"
+  },
+  {
+   "index": 16,
+   "name": "C0",
+   "hex": "#0B2E34"
+  },
+  {
+   "index": 17,
+   "name": "C1",
+   "hex": "#1A7F8A"
+  },
+  {
+   "index": 18,
+   "name": "C2",
+   "hex": "#59E3EA"
+  }
+ ],
+ "ramp_rock_dark_to_light": [
+  "K0",
+  "K1",
+  "V0",
+  "V1",
+  "B1",
+  "V2",
+  "B2",
+  "V3",
+  "V4"
+ ],
+ "scanline_darker": {
+  "K1": "K0",
+  "V0": "K1",
+  "V1": "V0",
+  "B1": "V1",
+  "V2": "B1",
+  "B2": "V2",
+  "V3": "B2",
+  "V4": "V3",
+  "N0": "V3"
+ },
+ "screen": {
+  "x": 64,
+  "y": 38,
+  "w": 112,
+  "h": 74,
+  "corner_radius": 5
+ },
+ "value_plate": {
+  "x0": 74,
+  "y0": 113,
+  "x1": 165,
+  "y1": 122,
+  "text_color": "#59E3EA",
+  "text_y": 115,
+  "format": "D {depth}%  P {pressure}%  (ganze Prozent, horizontal zentriert)"
+ },
+ "logo_click_rect": {
+  "x0": 50,
+  "y0": 4,
+  "x1": 189,
+  "y1": 31
+ },
+ "controls": {
+  "depth": {
+   "center": [
+    54,
+    143
+   ],
+   "sprite_topleft": [
+    43,
+    132
+   ],
+   "size": 24,
+   "strip": "ui/knob_depth_strip.png",
+   "frames": 64
+  },
+  "pressure": {
+   "center": [
+    144,
+    143
+   ],
+   "sprite_topleft": [
+    133,
+    132
+   ],
+   "size": 24,
+   "strip": "ui/knob_pressure_strip.png",
+   "frames": 64
+  },
+  "in": {
+   "center": [
+    84,
+    145
+   ],
+   "sprite_topleft": [
+    79,
+    140
+   ],
+   "size": 12,
+   "strip": "ui/knob_small_strip.png",
+   "frames": 32
+  },
+  "out": {
+   "center": [
+    106,
+    145
+   ],
+   "sprite_topleft": [
+    101,
+    140
+   ],
+   "size": 12,
+   "strip": "ui/knob_small_strip.png",
+   "frames": 32
+  },
+  "bypass": {
+   "center": [
+    192,
+    144
+   ],
+   "sprite_topleft": [
+    182,
+    136
+   ],
+   "size": [
+    20,
+    16
+   ],
+   "off": "ui/bypass_off.png",
+   "on": "ui/bypass_on.png"
+  }
+ },
+ "animation": {
+  "level": "round(DEPTH/10) -> 0..10",
+  "fps": 8,
+  "sequence": [
+   0,
+   1,
+   0,
+   1,
+   0,
+   1,
+   0,
+   2
+  ],
+  "note": "f0/f1 = CRT-Flackern, Figur wackelt, Staub; f2 = Blinzel-Frame (Augen zu/halb zu), sonst wie f0"
+ },
+ "depth_counter": [
+  0,
+  -12,
+  -48,
+  -130,
+  -270,
+  -480,
+  -760,
+  -1100,
+  -1550,
+  -2300,
+  -6666
+ ],
+ "eyes_from_level": 4,
+ "pressure_fx": {
+  "stage_from_pressure": "stage = round(P * 3 / 100) -> 0..3",
+  "remap": {
+   "0": {},
+   "1": {
+    "V1": "R0",
+    "B1": "V1"
+   },
+   "2": {
+    "V0": "R0",
+    "V1": "R0",
+    "B1": "R0",
+    "V2": "R1",
+    "B2": "V2"
+   },
+   "3": {
+    "K1": "R0",
+    "V0": "R0",
+    "V1": "R1",
+    "B1": "R0",
+    "V2": "R1",
+    "B2": "R1",
+    "V3": "R2",
+    "V4": "R2",
+    "N0": "R2",
+    "N1": "R3"
+   }
+  },
+  "jitter": {
+   "0": [
+    {},
+    {},
+    {}
+   ],
+   "1": [
+    {},
+    {},
+    {}
+   ],
+   "2": [
+    {
+     "17": 1,
+     "46": -1
+    },
+    {
+     "30": 1,
+     "31": 1,
+     "58": -1
+    },
+    {
+     "9": -1,
+     "52": 1
+    }
+   ],
+   "3": [
+    {
+     "12": 2,
+     "13": 2,
+     "40": -1,
+     "41": -2,
+     "64": 1
+    },
+    {
+     "24": -2,
+     "25": -2,
+     "26": -1,
+     "50": 2,
+     "51": 1
+    },
+    {
+     "6": 1,
+     "33": -2,
+     "34": -2,
+     "60": 2,
+     "61": 2
+    }
+   ]
+  }
+ },
+ "bypass_screen": "ui/screen_off.png"
+}
