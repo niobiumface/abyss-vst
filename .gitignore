@@ -1,8 +1,11 @@
 build/
 out/
+dist/
 .vs/
 tools/pluginval/
 *.user
 *.log
 CMakeUserPresets.json
 .cache/
+scripts/MakePreview.exe
+installer/AbyssSetup.exe
